@@ -32,7 +32,7 @@ mongoose.connect(MONGO_URL,{
 })
 
 const store = new mongosession({
-    uri: process.env.MONGO_URL,
+    uri: MONGO_URL,
     collection:"sessions"
 })
 
