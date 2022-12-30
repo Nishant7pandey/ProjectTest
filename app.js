@@ -15,11 +15,12 @@ const isAuth = require("./middleware/isAuth");
 
 
 const app = express();
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
 
 // database connect 
 mongoose.set("strictQuery",false);
-mongoose.connect(process.env.MONGO_URL,{
+const MONGO_URL=`mongodb+srv://Nishant123:DFpaaqZ2Ych2jPCz@cluster0.m2xjepc.mongodb.net/introSave-node`
+mongoose.connect(MONGO_URL,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -327,7 +328,7 @@ app.get("./newPassword",(req,res)=>{
 
 
 
-
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT,()=>{
     console.log(`My server is ${PORT}`)
