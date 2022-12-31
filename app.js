@@ -309,15 +309,16 @@ app.post("/forget_password",async(req,res)=>{
 
 app.get("/profile",isAuth,async(req,res)=>{
     const userId = req.session.user.userId;
-    const userdata = await userSchema.findOne({_id:userId})
-    console.log(userdata)
-
-    res.render("profile",{
-        a: userdata
-    })
+    const userdata = await userSchema.findOne({_id:userId});
+    
+    res.render("profile",userdata)
 })
 app.post("/profile",isAuth,(req,res)=>{
-    console.log(req.session.user)
+    const userId =req.session.user.userId;
+    const userdatais = userSchema.findOneAndUpdate({_id:userId},{...req.body});
+    // await userdatais.save();
+    console.log(userdatais);
+     return res.status(200);
 })
 
 app.get("./newPassword",(req,res)=>{

@@ -6,6 +6,7 @@ const UserSchema = new Schema({
     name:{
         type:String,
         required: true,
+        default:""
     },
     username:{
         type:String,
@@ -25,15 +26,16 @@ const UserSchema = new Schema({
     phoneNumber:{
         type:String,
         required:true,
+        default:""
     },
     emailAuthenticated:{
         type:Boolean,
         required: true,
     },
-    picture: String,
-    country: String,
-    college: String,
-    state: String
+    picture: {type:String,required:true,default:"enter",required: true},
+    country: {type:String,required:true,default:"enter",required: true},
+    college: {type:String,required:true,default:"enter",required: true},
+    state: {type:String,required:true,default:"enter",required: true},
 })
 
 module.exports = mongoose.model("user",UserSchema);

@@ -4,7 +4,8 @@ const nodemailer = require("nodemailer");
 const { resolve } = require("path");
 
 const cleanUpAndValidate =({name,email,username,password,phoneNumber})=>{
-    return new Promise((resolve,reject)=>{
+    return new Prom
+    ise((resolve,reject)=>{
         if(typeof email != "string") reject("Invalide Email");
         if(typeof name != "string") reject("Invalide name");
         if(typeof password != "string") reject("Invalide password");
